@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<packaging>pom</packaging>
+
+	<parent>
+		<groupId>org.scijava</groupId>
+		<artifactId>pom-scijava</artifactId>
+		<version>28.0.0</version>
+		<relativePath />
+	</parent>
+
+    <groupId>com.kephale</groupId>
+    <artifactId>sciview-vistools</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+
+	<name>sciview-vistools</name>
+	<description>This is a minimal SciView project.</description>
+	<url>http://sc.iview.sc/</url>
+	<inceptionYear>2018</inceptionYear>
+	<organization>
+		<name>graphics.scenery</name>
+		<url>http://scenery.graphics/</url>
+	</organization>
+	<licenses>
+		<license>
+			<name>Simplified BSD License</name>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<id>kephale</id>
+			<name>Kyle Harrington</name>
+			<url>http://imagej.net/User:Kharrington</url>
+			<roles>
+				<role>founder</role>
+				<role>lead</role>
+				<role>developer</role>
+				<role>debugger</role>
+				<role>reviewer</role>
+				<role>support</role>
+				<role>maintainer</role>
+			</roles>
+		</developer>
+	</developers>
+	<contributors>
+		<contributor>
+			<name>Curtis Rueden</name>
+			<url>http://imagej.net/User:ctrueden</url>
+			<properties><id>ctrueden</id></properties>
+		</contributor>
+	</contributors>
+
+	<mailingLists>
+		<mailingList>
+			<name>ImageJ Forum</name>
+			<archive>http://forum.imagej.net/</archive>
+		</mailingList>
+	</mailingLists>
+
+	<scm>
+		<connection>scm:git:git://github.com/scenerygraphics/minimal-sciview-example-project</connection>
+		<developerConnection>scm:git:git@github.com:scenerygraphics/minimal-sciview-example-project</developerConnection>
+		<tag>HEAD</tag>
+		<url>https://github.com/scenerygraphics/minimal-sciview-example-project</url>
+	</scm>
+	<issueManagement>
+		<system>GitHub Issues</system>
+		<url>https://github.com/scenerygraphics/minimal-sciview-example-project/issues</url>
+	</issueManagement>
+	<ciManagement>
+		<system>Travis CI</system>
+		<url>https://travis-ci.org/scenerygraphics/minimal-sciview-example-project</url>
+	</ciManagement>
+
+	<properties>
+		<main-class>sc.iview.minimal.Main</main-class>
+		<package-name>net.imagej</package-name>
+
+		<license.licenseName>bsd_2</license.licenseName>
+		<license.copyrightOwners>Board of Regents of the University of Idaho.</license.copyrightOwners>
+		<license.projectName>Minimal sciview.</license.projectName>
+
+		<sciview.version>0.2.0-beta-6-SNAPSHOT</sciview.version>
+		<scenery.version>0.7.0-beta-8-SNAPSHOT</scenery.version>
+		<joml.version>1.9.22</joml.version>
+		<kotlin.version>1.4-M1</kotlin.version>
+
+
+<!--		<maven.compiler.target>11</maven.compiler.target>-->
+		<!-- NB: Deploy releases to the ImageJ Maven repository. -->
+		<releaseProfiles>deploy-to-imagej</releaseProfiles>
+	</properties>
+
+	<repositories>
+		<repository>
+		    <id>jitpack.io</id>
+		    <url>https://jitpack.io</url>
+		</repository>
+		<repository>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <id>bintray.kotlin.eap</id>
+            <name>Bintray Kotlin EAP Repository</name>
+            <url>https://dl.bintray.com/kotlin/kotlin-eap</url>
+        </repository>
+		<repository>
+			<id>scijava.public</id>
+			<url>https://maven.scijava.org/content/groups/public</url>
+		</repository>
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>kotlin-bintray</id>
+			<name>Kotlin Bintray</name>
+			<url>http://dl.bintray.com/kotlin/kotlin-dev</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+		<pluginRepository>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <id>bintray.kotlin.eap</id>
+            <name>Bintray Kotlin EAP Repository</name>
+            <url>https://dl.bintray.com/kotlin/kotlin-eap</url>
+        </pluginRepository>
+	</pluginRepositories>
+
+	<dependencies>
+
+		<dependency>
+		  <groupId>com.fifesoft</groupId>
+		  <artifactId>rsyntaxtextarea</artifactId>
+		  <version>3.1.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>sc.iview</groupId>
+			<artifactId>sciview</artifactId>
+			<version>${sciview.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>graphics.scenery</groupId>
+			<artifactId>scenery</artifactId>
+			<version>${scenery.version}</version>
+		</dependency>
+
+		<!-- ImageJ dependencies -->
+		<dependency>
+			<groupId>net.imagej</groupId>
+			<artifactId>imagej-common</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>net.imagej</groupId>
+			<artifactId>imagej-notebook</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>net.imagej</groupId>
+			<artifactId>imagej-ops</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>net.imagej</groupId>
+			<artifactId>imagej-updater</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>net.imagej</groupId>
+			<artifactId>imagej</artifactId>
+		</dependency>
+
+		<!-- SCIFIO dependencies -->
+		<dependency>
+			<groupId>io.scif</groupId>
+			<artifactId>scifio</artifactId>
+		</dependency>
+
+		<!-- SciJava dependencies -->
+		<dependency>
+			<groupId>org.scijava</groupId>
+			<artifactId>scijava-common</artifactId>
+		</dependency>
+
+		<!-- Runtime ImageJ dependencies -->
+		<dependency>
+			<groupId>net.imagej</groupId>
+			<artifactId>imagej-legacy</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>net.imagej</groupId>
+			<artifactId>imagej-deprecated</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>net.imagej</groupId>
+			<artifactId>imagej-plugins-commands</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>net.imagej</groupId>
+			<artifactId>imagej-plugins-tools</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>net.imagej</groupId>
+			<artifactId>imagej-plugins-uploader-ssh</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>net.imagej</groupId>
+			<artifactId>imagej-plugins-uploader-webdav</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>net.imagej</groupId>
+			<artifactId>imagej-scripting</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>net.imagej</groupId>
+			<artifactId>imagej-ui-swing</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- Runtime SciJava dependencies -->
+		<dependency>
+			<groupId>org.scijava</groupId>
+			<artifactId>scijava-plugins-commands</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.scijava</groupId>
+			<artifactId>scijava-plugins-platforms</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.scijava</groupId>
+			<artifactId>scijava-plugins-text-markdown</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.scijava</groupId>
+			<artifactId>scijava-plugins-text-plain</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.scijava</groupId>
+			<artifactId>script-editor</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- Test scope dependencies -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+        <sourceDirectory>src/main/kotlin</sourceDirectory>
+        <testSourceDirectory>src/test/tests</testSourceDirectory>
+        <plugins>
+            <plugin>
+                <groupId>org.jetbrains.kotlin</groupId>
+                <artifactId>kotlin-maven-plugin</artifactId>
+                <version>${kotlin.version}</version>
+                <executions>
+                    <execution>
+                        <id>compile</id>
+                        <phase>compile</phase>
+                        <goals> <goal>compile</goal> </goals>
+                        <configuration>
+                            <sourceDirs>
+                                <source>src/main/kotlin</source>
+                                <source>target/generated-sources/kapt</source>
+                                <source>target/generated-sources/kaptKotlin</source>
+                            </sourceDirs>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>test-compile</id>
+                        <phase>test-compile</phase>
+                        <goals> <goal>test-compile</goal> </goals>
+                        <configuration>
+                            <sourceDirs>
+                                <sourceDir>${project.basedir}/src/test/tests</sourceDir>
+                            </sourceDirs>
+                        </configuration>
+                    </execution>
+                </executions>
+                <configuration>
+                    <jvmTarget>1.8</jvmTarget>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>default-compile</id>
+                        <phase>none</phase>
+                    </execution>
+                    <execution>
+                        <id>default-testCompile</id>
+                        <phase>none</phase>
+                    </execution>
+                    <execution>
+                        <id>java-compile</id>
+                        <phase>compile</phase>
+                        <goals> <goal>compile</goal> </goals>
+                    </execution>
+                    <execution>
+                        <id>java-test-compile</id>
+                        <phase>test-compile</phase>
+                        <goals> <goal>testCompile</goal> </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-release-plugin</artifactId>
+                <configuration>
+                    <goals>dokka:javadocJar deploy</goals>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <systemPropertyVariables>
+                        <jacoco-agent.destfile>${project.build.directory}/jacoco.exec</jacoco-agent.destfile>
+                    </systemPropertyVariables>
+                    <argLine>@{argLine} -Xmx8192m</argLine>
+                    <forkCount>1</forkCount>
+                    <reuseForks>true</reuseForks>
+                    <includes>
+                        <include>**/*Tests.*</include>
+                    </includes>
+
+                    <excludes>
+                        <exclude>**/*Example.*</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <configuration>
+                    <destFile>${project.build.directory}/jacoco.exec</destFile>
+                    <dataFile>${project.build.directory}/jacoco.exec</dataFile>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>default-prepare-agent</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>default-report</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
