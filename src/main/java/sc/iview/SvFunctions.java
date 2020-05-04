@@ -13,21 +13,20 @@ import net.imglib2.type.numeric.RealType;
  */
 public class SvFunctions {
 
-    public static < T extends RealType  > SciView show(
-            final RandomAccessibleInterval< T > img,
-			final String name ) {
-        try {
-            return show( img, name, new SvOptions() );
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
+    // Show methods for volumes
+    public static < T extends RealType > SciView show( final RandomAccessibleInterval< T > img, final String name ) {
+        return show( img, name, new SvOptions() );
     }
 
-    public static < T extends RealType> SciView show(RandomAccessibleInterval<T> img, String name, SvOptions options) {
+    public static < T extends RealType > SciView show(RandomAccessibleInterval<T> img, String name, SvOptions options) {
         SciView sciView = options.getAddTo();
         sciView.addVolume(img, name);
         return sciView;
+    }
+
+    // Show methods for meshes
+    public static SciView show(Mesh mesh, String name) {
+        return show(mesh, name, new SvOptions());
     }
 
     public static SciView show(Mesh mesh, String name, SvOptions options) {
@@ -36,5 +35,4 @@ public class SvFunctions {
         n.setName(name);
         return sciView;
     }
-
 }

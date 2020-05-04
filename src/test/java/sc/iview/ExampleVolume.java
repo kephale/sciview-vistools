@@ -1,6 +1,5 @@
 package sc.iview;
 
-import graphics.scenery.Node;
 import net.imglib2.Cursor;
 import net.imglib2.RandomAccessibleInterval;
 import net.imglib2.img.Img;
@@ -9,23 +8,15 @@ import net.imglib2.type.numeric.integer.UnsignedByteType;
 
 import java.util.Random;
 
-public class VistoolsDemo {
+/**
+ * This method creates a RandomAccessibleInterval with random contents and shows it as a volume in SciView.
+ */
+public class ExampleVolume {
 
     public static void main(String... args) {
-
-        //makeAndShowVolume();
-
-    }
-
-    /**
-     * This method creates a RandomAccessibleInterval with random contents and shows it as a volume in SciView.
-     */
-    private static void makeAndShowVolume() {
         RandomAccessibleInterval<UnsignedByteType> demoImg = makeDemoImg(50, 50, 50);
 
-        // add Options to sciview, have activate/center on new nodes as an option
-
-        SciView sv = SvFunctions.show(demoImg, "demoVolume");
+        SvFunctions.show(demoImg, "demoVolume");
     }
 
     /**

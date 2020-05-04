@@ -3,7 +3,6 @@ package sc.iview;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
-import java.util.function.Supplier;
 
 /**
  * SciView options.
@@ -52,6 +51,7 @@ public class SvOptions {
             Map<String, Object> m = new HashMap<>();
             m.put("sc.iview.CenterOnNewNodes", true);
             m.put("sc.iview.BlockOnNewNodes", true);
+            m.put("sc.iview.FloorVisible", false);
             return m;
         }
     }
@@ -81,6 +81,8 @@ public class SvOptions {
                 sciView.setCenterOnNewNodes( (boolean) val );
             } else if( key.compareTo("sc.iview.BlockOnNewNodes") == 0 ) {
                 sciView.setBlockOnNewNodes( (boolean) val );
+            } else if( key.compareTo("sc.iview.FloorVisible") == 0 ) {
+                sciView.getFloor().setVisible( (boolean) val );
             }
         }
 

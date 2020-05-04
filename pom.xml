@@ -143,6 +143,16 @@
 	<dependencies>
 
 		<dependency>
+			<groupId>net.imagej</groupId>
+			<artifactId>imagej-mesh</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>net.imagej</groupId>
+			<artifactId>imagej-mesh-io</artifactId>
+		</dependency>
+
+		<dependency>
 		  <groupId>com.fifesoft</groupId>
 		  <artifactId>rsyntaxtextarea</artifactId>
 		  <version>3.1.1</version>
