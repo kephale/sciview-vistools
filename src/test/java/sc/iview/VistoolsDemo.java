@@ -13,7 +13,7 @@ public class VistoolsDemo {
 
     public static void main(String... args) {
 
-        makeAndShowVolume();
+        //makeAndShowVolume();
 
     }
 
@@ -28,6 +28,13 @@ public class VistoolsDemo {
         SciView sv = SvFunctions.show(demoImg, "demoVolume");
     }
 
+    /**
+     * Make an image of random noise with a gradient along Z (dimension==2)
+     * @param w
+     * @param h
+     * @param d
+     * @return
+     */
     private static RandomAccessibleInterval<UnsignedByteType> makeDemoImg(int w, int h, int d) {
         Img<UnsignedByteType> out = ArrayImgs.unsignedBytes(w, h, d);
 
@@ -35,12 +42,15 @@ public class VistoolsDemo {
         Random rng = new Random(seed);
 
         Cursor<UnsignedByteType> oCur = out.cursor();
+        long[] pos = new long[3];
         int maxVal = -1;
         while( oCur.hasNext() ) {
             oCur.fwd();
+            oCur.localize(pos);
             if( maxVal < 0 )
-                maxVal = (int) oCur.get().getMaxValue();
-            oCur.get().set( rng.nextInt( maxVal ) );
+                maxVal = (int) oCur.get().getMaxValue() / d;
+            int val = rng.nextInt((int) (maxVal * ( pos[2] + 1 )));
+            oCur.get().set( val );
         }
 
         return out;

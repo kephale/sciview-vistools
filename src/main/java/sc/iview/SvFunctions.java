@@ -1,6 +1,7 @@
 package sc.iview;
 
-
+import graphics.scenery.Node;
+import net.imagej.mesh.Mesh;
 import net.imglib2.RandomAccessibleInterval;
 import net.imglib2.type.numeric.RealType;
 
@@ -25,9 +26,15 @@ public class SvFunctions {
 
     public static < T extends RealType> SciView show(RandomAccessibleInterval<T> img, String name, SvOptions options) {
         SciView sciView = options.getAddTo();
-        sciView.addVolume( img, name );
+        sciView.addVolume(img, name);
         return sciView;
     }
 
+    public static SciView show(Mesh mesh, String name, SvOptions options) {
+        SciView sciView = options.getAddTo();
+        Node n = sciView.addMesh(mesh);
+        n.setName(name);
+        return sciView;
+    }
 
 }

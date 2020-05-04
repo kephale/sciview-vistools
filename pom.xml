@@ -83,11 +83,10 @@
 		<license.copyrightOwners>Board of Regents of the University of Idaho.</license.copyrightOwners>
 		<license.projectName>Minimal sciview.</license.projectName>
 
-		<sciview.version>0.2.0-beta-6-SNAPSHOT</sciview.version>
-		<scenery.version>0.7.0-beta-8-SNAPSHOT</scenery.version>
+		<sciview.version>4d82499</sciview.version>
+		<scenery.version>cdfce26</scenery.version>
 		<joml.version>1.9.22</joml.version>
 		<kotlin.version>1.4-M1</kotlin.version>
-
 
 <!--		<maven.compiler.target>11</maven.compiler.target>-->
 		<!-- NB: Deploy releases to the ImageJ Maven repository. -->
