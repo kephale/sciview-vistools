@@ -24,12 +24,17 @@ public class SvOptions {
         return values.addTo.apply(values);
     }
 
+    public SvOptions addTo(SciView sv) {
+        values.addTo = ( values ) -> sv;
+        return this;
+    }
+
     /**
      * Values is automatically initialized, therefore we want all constructor code to be lazy (e.g. Supplier's etc.)
      */
     public static class Values {
 
-        private final Function<Values, SciView> addTo;
+        private Function<Values, SciView> addTo;
         private Map<String, Object> metadata = new HashMap<>();
 
         Values() {
